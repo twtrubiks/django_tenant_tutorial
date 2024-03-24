@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}{{ tenant.name }}{% endblock %}
+
+{% block summary %}
+    <h1>{{ request.tenant.name }}</h1>
+  <h2>{{ request.tenant.description }}</h2>
+{% endblock %}
+
+{% block instructions %}
+    <h2>test page</h2>
+
+    <h3>TableOne</h3>
+    {% for tableone in tableone_list %}
+    <li>{{ tableone.name }}</li>
+    {% endfor %}
+
+    <h3>TableTwo</h3>
+    {% for tabletwo in tabletwo_list %}
+    <li>name: {{ tabletwo.name }} - TableOne name: {{ tabletwo.table_one.name }}</li>
+    {% endfor %}
+
+    <p style="padding-top: 20px"></p>
+
+    <a href="{% url 'index' %}">Back to tenant index</a>
+{% endblock %}

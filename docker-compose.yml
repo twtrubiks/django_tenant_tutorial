@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+
+  mydb:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=django_tenants
+      - POSTGRES_USER=django_tenants
+      - POSTGRES_PASSWORD=django_tenants
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - my-db-data:/var/lib/postgresql/data/pgdata
+
+volumes:
+  my-db-data:
